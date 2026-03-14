@@ -1,0 +1,105 @@
+Book Recomender System:
+	Recomend things based on user preference 
+	same things apply on online website sort things recomend things for user preference 
+	Target is enhance profit 
+	Intelligent enough to know what user wants 
+	
+	Types:
+		Popularit based i.e Youtube trending videos  based on a formula 
+		Content Based  recomend based on user similarity 
+		Collaborative filtering based: based on how user rate products 
+		Hybraid based cOMBINATION OF ALL 
+	
+	Dataset : Book Recommendation Dataset 
+		has three files book rating user .csv files 
+		
+		Create a new notebook 
+		
+		import numpy as np 
+		import pandas as pd 
+		
+		books = pd.read_csv('book.csv')
+		user = pd.read_csv('user.csv')
+	    rating = pd.read_csv('rating.csv')
+		
+		apply head on each to understand the data 
+		
+		find null count 
+		duplicated count 
+		
+		apply eda on your own 
+		
+		first we will create a popularity based recomender system 
+		
+		Popularity Based Recomender System 
+		Formula: higher average rating but only those books where voting is more than 250  
+		
+		ratings_with_name = ratings.merge(books on ISBN)
+		
+		num_rating_df = ratings_with_name.groupby('Book-Title').count()[[ Book-Rating]].reset_index()
+		num_rating_df.rename(columns={'Book-Rating':'num_ratings'},inplace = True )
+		num_rating_df
+		
+		
+		avg_num_rating_df = ratings_with_name.groupby('Book-Title').mean()[[ Book-Rating]].reset_index()
+		avg_num_rating_df.rename(columns={'Book-Rating':'num_ratings'},inplace = True )
+		avg_num_rating_df		
+		
+		popular_df = num_rating_df.merge(avg_rating_df on='Book-Title')
+		popular_df 
+		
+		popular_df = popular_df[popular_df[num_ratings]>= 250].sort_values('avg_rating' , ascending = False).head(50)
+		
+		popular_df.merge(books on= booktitle ).drop_dupicated(booktitle)[book-title, book-author image-url-m num_ratings avg_rating]
+		
+		
+		lets move to collaborative  filterig 
+		books -> book name
+		rating -> userid, bookid, rating 
+		
+		book user 1 user 2   user 3 
+		book_1 3     5        3    
+		
+		consider only those user who rates over 200 books 
+		and books only those have atleast 50 ratings 
+		
+		ratings_with_name :  apply filterig voteees > 200 books >50 
+		x= ratings_with_name.groupby('user-id').count()[book-rating] > 200
+		good_users = x[x].index
+		
+		filtered_rating = ratings_with_name = ratings[user-id]isin(good_users)
+		filtered_rating.groupby('Book-Title').count()['Book-rating'] >= 50 
+		famous_books = y[y].index
+		
+		final_ratings = filtered_rating[filtered_rating[book-title].isin(famous_books)]
+		
+		pt = final_ratings.pivot_table(index='Book-Title' , columns='User-ID',values='Book-rating' )
+		pt.fillna(0,inplace = True)
+		from sklearn.metrics.pairwise import cosine_similarity 
+		similarity_score = consine_simlarity(pt)
+		
+		def recomend(book_name):
+			#index_fetch 
+			index =  np.where(pt.index == 'name')[0][0]
+			similar_items = 		sorted(list(enumerate(similarity_score[index])), key=lambda x:x[1], reverse=True)[1:6]
+			
+			for i in similar_items:
+				print(pt.index[i[0]])
+			
+			
+		    
+
+		test books 
+		message om bottle 
+		the notebook
+		1948
+		the Da vinci code
+		the hobbit: The Enchanting prelude to the lord of the rings 
+		The fellowship of the ring (The Lord of the rings , part 1)
+		Harry potter and the chamber of secrets (Book 2)
+		
+		
+		
+		
+		
+		
