@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Vision AI</title>
+    <link rel="stylesheet" href="../static/index.css">
+</head>
+<body>
+    <h1>Data Vision AI</h1>
+    <p>Upload, process data, visualize, train & predict! by just one click</p>
+
+
+
+    
+
+    <!-- Upload -->
+    <div class="form-group upload-box">
+        <input type="file" id="csvFile">
+        <button id="uploadBtn" class="btn-upload">Upload CSV</button>
+    </div>
+  <!-- SHOW DATA TYPES -->
+    <div class="form-group">
+        <button id="dtypeBtn" class="btn-run">Show Data Types</button>
+        <div id="dtypeResult"></div>
+    </div>
+    <!-- Clean / Normalize -->
+    <button id="cleanBtn" class="btn-clean">Clean Dataset</button>
+    <button id="normalBtn" class="btn-normalize">Normalize Dataset</button>
+
+ 
+
+  
+   <hr>
+
+   
+    <!-- CORRELATION -->
+     <h2 class=" heading">Check Correlation</h2>
+    <div class="form-group">
+        <label>Column 1:</label>
+        <input type="text" id="corrCol1" placeholder="col1">
+        <label>Column 2:</label>
+        <input type="text" id="corrCol2" placeholder="col2">
+        <button id="corrBtn" class="btn-run">Check Correlation</button>
+        <div id="corrResult"></div>
+    </div>
+
+    <hr>
+
+    <!-- GRAPH -->
+    <h2 class=" heading">Display Graphs </h2>
+    <div class="form-group">
+        <label>Graph Type:</label>
+        <select id="graphType">
+            <option value="">Select Graph</option>
+            <option value="scatter">Scatter Plot</option>
+            <option value="line">Line Graph</option>
+            <option value="bar">Bar Graph</option>
+            <option value="regression">Regression</option>
+            <option value="heatmap">Heatmap</option>
+        </select>
+
+        <label>X Column:</label>
+        <input type="text" id="xCol">
+
+        <label>Y Column:</label>
+        <input type="text" id="yCol">
+
+        <button id="graphBtn" class="btn-graph">Generate Graph</button>
+        <div id="graphResult"></div>
+    </div>
+
+    <hr>
+
+    <!-- FEATURES -->
+     <h2 class=" heading"> Train Dataset</h2>
+    <div class="form-group">
+        <label>Features (comma separated):</label>
+        <input type="text" id="featuresInput" placeholder="col1,col2,...">
+        <label>Target Column:</label>
+        <input type="text" id="targetInput" placeholder="target column">
+    </div>
+
+    <!-- MODEL -->
+    <div class="form-group">
+        <label>Model Type:</label>
+        <select id="modelType">
+            <option value="">Select Model</option>
+            <option value="linear">Linear Regression</option>
+            <option value="ridge">Ridge Regression</option>
+            <option value="polynomial">Polynomial Regression</option>
+        </select>
+    </div>
+
+    <!-- TRAIN -->
+    <button id="trainBtn" class="btn-run">Train Model</button>
+    <!-- <div id="results"></div> -->
+
+    <hr>
+
+       <!-- EVALUATION -->
+     <h2 class=" heading">Evaluate your model</h2>
+    <div class="form-group">
+        <label>Evaluation Type:</label>
+        <select id="evalType">
+            <option value="">Select Evaluation</option>
+            <option value="split">Train/Test Split</option>
+            <option value="kfold">K-Fold Validation</option>
+        </select>
+        <div id="evalOptions"></div>
+        <button id="evalBtn" class="btn-run">Evaluate Model</button>
+        <div id="evalResult"></div>
+    </div>
+
+    <hr>
+
+     <!-- PREDICT SECTION -->
+     <h2 class=" heading"> Predict Value</h2>
+    <div class="form-group">
+        <h3>Predict Value</h3>
+        <p>Enter values for selected features:</p>
+        <div id="predictInputs"></div>
+        <button id="predictBtn" class="btn-run">Predict</button>
+        <div id="predictResult"></div>
+    </div>
+    <script src="../static/index.js"></script>
+</body>
+</html>

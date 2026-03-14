@@ -1,0 +1,185 @@
+/* ------------------ GLOBAL ------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e1f29, #2c2e3a, #22232e);
+    color: #ffffff;
+    padding: 40px 20px;
+}
+
+/* ------------------ HEADER ------------------ */
+h1 {
+    text-align: center;
+    font-size: 46px;
+    margin-bottom: 10px;
+    color: #00eaff;
+    text-shadow: 0 2px 8px rgba(0, 234, 255, 0.6);
+}
+
+.heading{
+      text-align: center;
+    font-size: 23px;
+    margin-bottom: 10px;
+    color: #00eaff;
+    text-shadow: 0 2px 8px rgba(0, 234, 255, 0.6);
+}
+
+p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 18px;
+    opacity: 0.85;
+}
+
+/* ------------------ FORM SECTION ------------------ */
+.form-section {
+    width: 95%;
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+hr{
+    margin-bottom : 10px
+}
+
+.form-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* ------------------ SECTION TITLE ------------------ */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: #00ffe5;
+    border-left: 5px solid #00eaff;
+    padding-left: 12px;
+    text-shadow: 0 1px 3px rgba(0,255,255,0.5);
+}
+
+/* ------------------ INPUTS & SELECTS ------------------ */
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 10px 0 22px;
+    background: #2f303d;
+    border: 1px solid rgba(0, 234, 255, 0.3);
+    color: #fff;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #00eaff;
+    box-shadow: 0 0 14px rgba(0, 234, 255, 0.6);
+    outline: none;
+}
+
+/* ------------------ BUTTONS ------------------ */
+button {
+    padding: 14px 26px;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    margin: 8px 6px 8px 0;
+    transition: all 0.3s ease;
+}
+
+/* Action-specific buttons */
+.btn-upload { background: #ff6f61; color: #fff; }
+.btn-upload:hover { background: #e85b4b; }
+
+.btn-clean { background: #4caf50; color: #fff; }
+.btn-clean:hover { background: #3e8e41; }
+
+.btn-normalize { background: #2196f3; color: #fff; }
+.btn-normalize:hover { background: #1976d2; }
+
+.btn-run { background: #fdd835; color: #222; }
+.btn-run:hover { background: #fbc02d; }
+
+.btn-graph { background: #9c27b0; color: #fff; }
+.btn-graph:hover { background: #7b1fa2; }
+
+.btn-predict { background: #ff9800; color: #fff; }
+.btn-predict:hover { background: #fb8c00; }
+
+.btn-eval { background: #00eaff; color: #222; }
+.btn-eval:hover { background: #00d0d0; }
+
+/* ------------------ RESULTS & OUTPUT BOXES ------------------ */
+#results,
+#graphResult,
+#correlationOutput,
+#dataTypesOutput,
+#predictionResult,
+#evaluationResult {
+    margin-top: 22px;
+    padding: 22px;
+    background: rgba(0, 234, 255, 0.08);
+    border: 1px solid rgba(0, 234, 255, 0.4);
+    border-radius: 16px;
+    min-height: 70px;
+    font-size: 0.95rem;
+    overflow-x: auto;
+}
+
+/* Graph images */
+#graphResult img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* ------------------ UPLOAD BOX ------------------ */
+.upload-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.upload-box input[type="file"] {
+    flex: 1;
+}
+
+/* ------------------ FORM GROUPS ------------------ */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Grouping sections visually */
+.section-wrapper {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0,234,255,0.2);
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+    h1 { font-size: 36px; }
+    p { font-size: 16px; }
+
+    .form-section { padding: 20px; }
+    button { width: 100%; margin-right: 0; margin-bottom: 12px; }
+    .upload-box { flex-direction: column; }
+}
